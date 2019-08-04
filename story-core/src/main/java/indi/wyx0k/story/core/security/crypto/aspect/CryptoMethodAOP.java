@@ -38,7 +38,7 @@ public class CryptoMethodAOP {
     private Map<String,String> cryptoKeysMap;
     @Autowired
     private Map<String, BaseCryptoUtil> cryptoUtilMap;
-    @Pointcut(value = "@annotation(indi.wyx0k.mynetio.security.crypto.annotation.CryptoMethod)")
+    @Pointcut(value = "@annotation(indi.wyx0k.story.core.security.crypto.annotation.CryptoMethod)")
     public void point(){
 
     }
