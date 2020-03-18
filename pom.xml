@@ -6,10 +6,9 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.6.RELEASE</version>
+    <version>2.2.4.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-
   <modules>
     <module>story-api</module>
     <module>story-core</module>
@@ -25,7 +24,7 @@
   <url>http://www.example.com</url>
 
   <properties>
-
+    <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -45,7 +44,28 @@
         <artifactId>fastjson</artifactId>
         <version>1.2.58</version>
       </dependency>
-
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>3.3.1.tmp</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>3.3.1.tmp</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity-engine-core</artifactId>
+        <version>2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
