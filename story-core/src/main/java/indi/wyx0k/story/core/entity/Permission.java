@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 许可
  * </p>
  *
  * @author wyx0k

@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 角色
  * </p>
  *
  * @author wyx0k
