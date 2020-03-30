@@ -3,7 +3,6 @@ package indi.wyx0k.story.core.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -13,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 角色
+ * 
  * </p>
  *
  * @author wyx0k
@@ -22,44 +21,21 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("story_role")
-public class Role extends Model<Role> {
+@TableName("story_user_role")
+public class UserRole extends Model<UserRole> {
 
     private static final long serialVersionUID=1L;
 
-    /**
-     * 角色id
-     */
-      @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+      @TableId(value = "userId", type = IdType.AUTO)
+    private String userId;
 
-    /**
-     * 角色名称
-     */
-    @TableField("roleName")
-    private String roleName;
-
-    /**
-     * 角色描述
-     */
-    private String description;
-
-    /**
-     * 创建时间
-     */
-    @TableField("createTime")
-    private LocalDateTime createTime;
-
-    /**
-     * 修改时间
-     */
-    @TableField("modifyTime")
-    private LocalDateTime modifyTime;
+    @TableField("roleId")
+    private String roleId;
 
 
     @Override
     protected Serializable pkVal() {
-        return this.id;
+        return this.userId;
     }
 
 }

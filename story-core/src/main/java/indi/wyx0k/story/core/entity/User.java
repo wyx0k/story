@@ -3,6 +3,7 @@ package indi.wyx0k.story.core.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyx0k
- * @since 2020-03-18
+ * @since 2020-03-30
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -43,16 +44,27 @@ public class User extends Model<User> {
     private String password;
 
     /**
-     * 角色id
-     */
-    @TableField("roleId")
-    private String roleId;
-
-    /**
      * 用户详细信息的id
      */
     @TableField("userInfoId")
     private String userInfoId;
+
+    /**
+     * 创建时间
+     */
+    @TableField("createTime")
+    private LocalDateTime createTime;
+
+    /**
+     * 修改时间
+     */
+    @TableField("modifyTime")
+    private LocalDateTime modifyTime;
+
+    /**
+     * 是否冻结
+     */
+    private Boolean freeze;
 
 
     @Override

@@ -14,7 +14,7 @@ import java.util.List;
 
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
 public class CodeGenerator {
-    private static String[] GEN_TABLES = {"story_user","story_permission","story_role"};
+    private static String[] GEN_TABLES = {"story_permission"};
     private static String MODULE_NAME = "/story-core";
 
     private static boolean disableController = true;
@@ -25,7 +25,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + MODULE_NAME +"/src/main/java")
+        gc.setOutputDir(projectPath + MODULE_NAME +"/codeGen")
                 .setAuthor("wyx0k")
                 .setOpen(false)
                 .setActiveRecord(true)
@@ -56,31 +56,31 @@ public class CodeGenerator {
 
         mpg.setPackageInfo(pc);
 
-        // 自定义配置
-        InjectionConfig cfg = new InjectionConfig() {
-            @Override
-            public void initMap() {
-                // to do nothing
-            }
-        };
-
-
-        // 如果模板引擎是 velocity
-         String templatePath = "templates/codegen/mapper.xml.vm";
-       // 自定义输出配置
-        List<FileOutConfig> focList = new ArrayList<>();
-        // 自定义配置会被优先输出
-        focList.add(new FileOutConfig(templatePath) {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + MODULE_NAME + "/src/main/resources/mapper/"
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
-            }
-        });
-
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+//        // 自定义配置
+//        InjectionConfig cfg = new InjectionConfig() {
+//            @Override
+//            public void initMap() {
+//                // to do nothing
+//            }
+//        };
+//
+//
+//        // 如果模板引擎是 velocity
+//         String templatePath = "templates/codegen/mapper.xml.vm";
+//       // 自定义输出配置
+//        List<FileOutConfig> focList = new ArrayList<>();
+//        // 自定义配置会被优先输出
+//        focList.add(new FileOutConfig(templatePath) {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+//                return projectPath + MODULE_NAME + "/src/main/resources/mapper/"
+//                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+//            }
+//        });
+//
+//        cfg.setFileOutConfigList(focList);
+//        mpg.setCfg(cfg);
 
         // 配置模板
         TemplateConfig templateConfig = new TemplateConfig();

@@ -3,7 +3,9 @@ package indi.wyx0k.story.core.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyx0k
- * @since 2020-03-18
+ * @since 2020-03-30
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -40,6 +42,29 @@ public class Permission extends Model<Permission> {
      * 许可描述
      */
     private String description;
+
+    /**
+     * 创建时间
+     */
+    @TableField("createTime")
+    private LocalDateTime createTime;
+
+    /**
+     * 修改时间
+     */
+    @TableField("modifyTime")
+    private LocalDateTime modifyTime;
+
+    /**
+     * 中文名
+     */
+    @TableField("zhName")
+    private String zhName;
+
+    /**
+     * 名称
+     */
+    private String name;
 
 
     @Override

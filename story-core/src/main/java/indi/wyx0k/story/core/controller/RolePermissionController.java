@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 用户 前端控制器
+ *  前端控制器
  * </p>
  *
  * @author wyx0k
@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 
-public class UserController {
+public class RolePermissionController {
 }
 

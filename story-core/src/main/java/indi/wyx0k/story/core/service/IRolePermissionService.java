@@ -1,16 +1,16 @@
 package indi.wyx0k.story.core.service;
 
-import indi.wyx0k.story.core.entity.User;
+import indi.wyx0k.story.core.entity.RolePermission;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- * 用户 服务类
+ *  服务类
  * </p>
  *
  * @author wyx0k
  * @since 2020-03-30
  */
-public interface IUserService extends IService<User> {
+public interface IRolePermissionService extends IService<RolePermission> {
 
 }

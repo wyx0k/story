@@ -7,12 +7,13 @@
         <id column="id" property="id" />
         <result column="roleName" property="roleName" />
         <result column="description" property="description" />
-        <result column="permissionId" property="permissionId" />
+        <result column="createTime" property="createTime" />
+        <result column="modifyTime" property="modifyTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, roleName, description, permissionId
+        id, roleName, description, createTime, modifyTime
     </sql>
 
 </mapper>
