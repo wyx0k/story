@@ -27,9 +27,11 @@ import java.util.List;
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IRoleService {
     @Autowired
-    UserRoleMapper userRoleMapper;
+    private UserRoleMapper userRoleMapper;
     @Autowired
-    RoleMapper roleMapper;
+    private RoleMapper roleMapper;
+    @Autowired
+    private RolePermissionMapper rolePermissionMapper;
     @Override
     public List<Role> listRolesByUserId(String userid) {
         List<String> roleIds = listRolesIdByUserId(userid);
@@ -40,9 +42,21 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
 
     @Override
     public List<String> listRolesIdByUserId(String userid) {
-        QueryWrapper<UserRole> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("userId",userid);
         List<String> roleIdList = userRoleMapper.listRoleId(userid);
+        return roleIdList;
+    }
+
+    @Override
+    public List<Role> listRolesByPermissionId(String permissionId) {
+        List<String> roleIds = listRolesIdByPermissionId(permissionId);
+        List<Role> result = new ArrayList<>();
+        result = roleMapper.selectBatchIds(roleIds);
+        return result;
+    }
+
+    @Override
+    public List<String> listRolesIdByPermissionId(String permissionId) {
+        List<String> roleIdList = rolePermissionMapper.listRoleIds(permissionId);
         return roleIdList;
     }
 }

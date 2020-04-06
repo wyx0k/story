@@ -39,6 +39,10 @@ public class StoryUserDetailService implements UserDetailsService {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("username",s);
         User user = userService.getOne(queryWrapper);
+        if(null == user){
+            throw new UsernameNotFoundException("账号或密码不正确");
+        }
+
 //        查询角色
         List<Role> roles= roleService.listRolesByUserId(user.getId());
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
