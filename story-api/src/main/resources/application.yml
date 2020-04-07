@@ -1,2 +1,16 @@
-server\uFF1A
-  port\uFF1A8082
+server:
+  port: 9205
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9200/eureka/
+spring:
+  application:
+    name: story-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/story?useUnicode=true&characterEncoding=UTF-8&useSSL=false&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+    username: root
+    password: root
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  typeAliasesPackage: indi.wyx0k.story.core.entity

@@ -14,7 +14,7 @@ import java.util.List;
 
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
 public class CodeGenerator {
-    private static String[] GEN_TABLES = {"story_permission"};
+    private static String[] GEN_TABLES = {"story_image","story_image_info"};
     private static String MODULE_NAME = "/story-core";
 
     private static boolean disableController = true;

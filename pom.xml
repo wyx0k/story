@@ -12,6 +12,9 @@
   <modules>
     <module>story-api</module>
     <module>story-core</module>
+    <module>story-center</module>
+    <module>story-engine</module>
+    <module>story-service-user</module>
   </modules>
 
   <packaging>pom</packaging>
@@ -66,6 +69,14 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+<!--   生成缩略图   -->
+      <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+      <dependency>
+        <groupId>net.coobird</groupId>
+        <artifactId>thumbnailator</artifactId>
+        <version>0.4.11</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
