@@ -9,7 +9,6 @@
 	</parent>
 	<groupId>indi.wyx0k</groupId>
 	<artifactId>story-engine</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>story-engine</name>
 	<description>Demo project for Spring Boot</description>
 
