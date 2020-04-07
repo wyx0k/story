@@ -33,30 +33,30 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
     @Autowired
     private RolePermissionMapper rolePermissionMapper;
     @Override
-    public List<Role> listRolesByUserId(String userid) {
-        List<String> roleIds = listRolesIdByUserId(userid);
+    public List<Role> listRolesByUserId(int userid) {
+        List<Integer> roleIds = listRolesIdByUserId(userid);
         List<Role> result = new ArrayList<>();
         result = roleMapper.selectBatchIds(roleIds);
         return result;
     }
 
     @Override
-    public List<String> listRolesIdByUserId(String userid) {
-        List<String> roleIdList = userRoleMapper.listRoleId(userid);
+    public List<Integer> listRolesIdByUserId(int userid) {
+        List<Integer> roleIdList = userRoleMapper.listRoleId(userid);
         return roleIdList;
     }
 
     @Override
-    public List<Role> listRolesByPermissionId(String permissionId) {
-        List<String> roleIds = listRolesIdByPermissionId(permissionId);
+    public List<Role> listRolesByPermissionId(int permissionId) {
+        List<Integer> roleIds = listRolesIdByPermissionId(permissionId);
         List<Role> result = new ArrayList<>();
         result = roleMapper.selectBatchIds(roleIds);
         return result;
     }
 
     @Override
-    public List<String> listRolesIdByPermissionId(String permissionId) {
-        List<String> roleIdList = rolePermissionMapper.listRoleIds(permissionId);
+    public List<Integer> listRolesIdByPermissionId(int permissionId) {
+        List<Integer> roleIdList = rolePermissionMapper.listRoleIds(permissionId);
         return roleIdList;
     }
 }

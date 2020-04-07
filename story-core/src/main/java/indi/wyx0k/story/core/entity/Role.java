@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyx0k
- * @since 2020-03-30
+ * @since 2020-04-07
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -31,7 +31,7 @@ public class Role extends Model<Role> {
      * 角色id
      */
       @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 角色名称

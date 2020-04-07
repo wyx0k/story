@@ -12,7 +12,7 @@
     <sql id="Base_Column_List">
         userId, roleId
     </sql>
-    <select id="listRoleId" parameterType="String" resultType="String">
+    <select id="listRoleId" parameterType="int" resultType="int">
         select roleId from story_user_role where userId = #{userId}
     </select>
 

@@ -14,8 +14,8 @@ import java.util.List;
  * @since 2020-03-18
  */
 public interface IRoleService extends IService<Role> {
-    List<Role> listRolesByUserId(String userid);
-    List<String> listRolesIdByUserId(String userid);
-    List<Role> listRolesByPermissionId(String permissionId);
-    List<String> listRolesIdByPermissionId(String permissionId);
+    List<Role> listRolesByUserId(int userid);
+    List<Integer> listRolesIdByUserId(int userid);
+    List<Role> listRolesByPermissionId(int permissionId);
+    List<Integer> listRolesIdByPermissionId(int permissionId);
 }

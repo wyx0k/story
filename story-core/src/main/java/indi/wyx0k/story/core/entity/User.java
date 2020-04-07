@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyx0k
- * @since 2020-03-30
+ * @since 2020-04-07
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -31,7 +31,7 @@ public class User extends Model<User> {
      * 用户id
      */
       @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 用户名
@@ -47,7 +47,7 @@ public class User extends Model<User> {
      * 用户详细信息的id
      */
     @TableField("userInfoId")
-    private String userInfoId;
+    private Integer userInfoId;
 
     /**
      * 创建时间

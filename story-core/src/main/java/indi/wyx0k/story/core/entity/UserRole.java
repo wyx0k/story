@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyx0k
- * @since 2020-03-30
+ * @since 2020-04-07
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -27,10 +27,10 @@ public class UserRole extends Model<UserRole> {
     private static final long serialVersionUID=1L;
 
       @TableId(value = "userId", type = IdType.AUTO)
-    private String userId;
+    private Integer userId;
 
     @TableField("roleId")
-    private String roleId;
+    private Integer roleId;
 
 
     @Override

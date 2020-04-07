@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author wyx0k
- * @since 2020-03-30
+ * @since 2020-04-07
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -27,10 +27,10 @@ public class RolePermission extends Model<RolePermission> {
     private static final long serialVersionUID=1L;
 
       @TableId(value = "roleId", type = IdType.AUTO)
-    private String roleId;
+    private Integer roleId;
 
     @TableField("permissionId")
-    private String permissionId;
+    private Integer permissionId;
 
 
     @Override

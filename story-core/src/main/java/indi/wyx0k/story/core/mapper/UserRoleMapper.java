@@ -17,5 +17,5 @@ import java.util.List;
  * @since 2020-03-30
  */
 public interface UserRoleMapper extends BaseMapper<UserRole> {
-    List<String> listRoleId (String userId);
+    List<Integer> listRoleId (int userId);
 }

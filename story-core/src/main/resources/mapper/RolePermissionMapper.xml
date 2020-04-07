@@ -12,10 +12,10 @@
     <sql id="Base_Column_List">
         roleId, permissionId
     </sql>
-    <select id="listRoleIds" parameterType="String" resultType="String">
+    <select id="listRoleIds" parameterType="int" resultType="int">
         select roleId from story_role_permission where permissionId = #{permissionId};
     </select>
-    <select id="listPermissionIds" parameterType="String" resultType="String">
+    <select id="listPermissionIds" parameterType="int" resultType="int">
         select permissionId from story_role_permission where roleId = #{roleId};
     </select>
 </mapper>
