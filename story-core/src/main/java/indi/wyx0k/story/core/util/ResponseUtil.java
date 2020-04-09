@@ -1,5 +1,6 @@
 package indi.wyx0k.story.core.util;
 
+import com.alibaba.fastjson.JSON;
 import indi.wyx0k.story.core.common.BaseResponse;
 import indi.wyx0k.story.core.constant.ResponseCode;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ResponseUtil {
     private ResponseUtil(){}
+    public static BaseResponse success(String token,Object msg){
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setCode(ResponseCode.SUCCESS.code());
+        baseResponse.setToken(token);
+        baseResponse.setMsg(JSON.toJSONString(msg));
+        return baseResponse;
+    }
     public static BaseResponse success(String token,String msg){
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setCode(ResponseCode.SUCCESS.code());

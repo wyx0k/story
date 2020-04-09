@@ -7,7 +7,6 @@
 		<artifactId>story-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<groupId>indi.wyx0k</groupId>
 	<artifactId>story-engine</artifactId>
 	<name>story-engine</name>
 	<description>Demo project for Spring Boot</description>
