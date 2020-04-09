@@ -44,6 +44,9 @@ public class StoryUserDetailService implements UserDetailsService {
         if(null == user){
             throw new UsernameNotFoundException("账号或密码不正确");
         }
+        if(true == user.getFreeze()){
+            throw new UsernameNotFoundException("账号被冻结~");
+        }
 
 //        查询角色
         List<Role> roles= roleService.listRolesByUserId(user.getId());
