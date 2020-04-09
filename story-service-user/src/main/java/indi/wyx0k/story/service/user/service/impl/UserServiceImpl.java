@@ -34,4 +34,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public void deleteUserById(int userId) {
         getBaseMapper().deleteById(userId);
     }
+
+    @Override
+    public void addUser(User user) {
+        getBaseMapper().insert(user);
+    }
 }

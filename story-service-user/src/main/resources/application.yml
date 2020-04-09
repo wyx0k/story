@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/story?useUnicode=true&characterEncoding=UTF-8&useSSL=false&jdbcCompliantTruncation=false&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
     username: root
     password: root
+
 eureka:
   client:
     service-url:

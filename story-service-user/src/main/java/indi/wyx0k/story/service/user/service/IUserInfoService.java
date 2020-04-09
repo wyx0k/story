@@ -15,4 +15,5 @@ public interface IUserInfoService extends IService<UserInfo> {
     UserInfo getUserInfoByUserId(int userId);
     void updateUserInfo(UserInfo userInfo);
     void deleteUserInfoById(int id);
+    void addUserInfo(UserInfo userInfo);
 }

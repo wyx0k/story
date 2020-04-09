@@ -35,4 +35,9 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     public void deleteUserInfoById(int id) {
         getBaseMapper().deleteById(id);
     }
+
+    @Override
+    public void addUserInfo(UserInfo userInfo) {
+        getBaseMapper().insert(userInfo);
+    }
 }
