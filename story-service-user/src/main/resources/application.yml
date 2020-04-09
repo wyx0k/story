@@ -14,4 +14,3 @@ eureka:
       defaultZone: http://localhost:9200/eureka/
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
-  typeAliasesPackage: indi.wyx0k.story.core.entity

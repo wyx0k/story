@@ -15,6 +15,7 @@
     <module>story-center</module>
     <module>story-engine</module>
     <module>story-service-user</module>
+    <module>story-service-image</module>
   </modules>
 
   <packaging>pom</packaging>
@@ -49,6 +50,11 @@
       <dependency>
         <groupId>indi.wyx0k</groupId>
         <artifactId>story-service-user</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>indi.wyx0k</groupId>
+        <artifactId>story-service-image</artifactId>
         <version>1.0.0-SNAPSHOT</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
