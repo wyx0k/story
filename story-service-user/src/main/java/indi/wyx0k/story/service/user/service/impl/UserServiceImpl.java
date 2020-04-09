@@ -1,5 +1,6 @@
 package indi.wyx0k.story.service.user.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import indi.wyx0k.story.service.user.entity.User;
 import indi.wyx0k.story.service.user.mapper.UserMapper;
@@ -16,5 +17,21 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+    @Override
+    public User getUserByUsername(String username) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("username",username);
+        User user = getBaseMapper().selectOne(queryWrapper);
+        return user;
+    }
 
+    @Override
+    public void updateUser(User user) {
+        getBaseMapper().updateById(user);
+    }
+
+    @Override
+    public void deleteUserById(int userId) {
+        getBaseMapper().deleteById(userId);
+    }
 }

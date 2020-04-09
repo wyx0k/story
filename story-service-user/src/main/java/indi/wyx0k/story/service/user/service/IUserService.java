@@ -12,5 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-03-30
  */
 public interface IUserService extends IService<User> {
-
+    User getUserByUsername(String username);
+    void updateUser(User user);
+    void deleteUserById(int userId);
 }
