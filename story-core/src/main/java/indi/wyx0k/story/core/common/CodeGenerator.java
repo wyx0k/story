@@ -2,19 +2,13 @@ package indi.wyx0k.story.core.common;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-
-import java.util.ArrayList;
-import java.util.List;
 
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
 public class CodeGenerator {
-    private static String[] GEN_TABLES = {"story_image","story_image_info"};
+    private static String[] GEN_TABLES = {"story_user_info"};
     private static String MODULE_NAME = "/story-core";
 
     private static boolean disableController = true;

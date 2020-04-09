@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="indi.wyx0k.story.core.mapper.UserInfoMapper">
+<mapper namespace="indi.wyx0k.story.service.user.mapper.UserInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="indi.wyx0k.story.core.entity.UserInfo">
+    <resultMap id="BaseResultMap" type="indi.wyx0k.story.service.user.entity.UserInfo">
         <id column="id" property="id" />
         <result column="birthday" property="birthday" />
         <result column="hoby" property="hoby" />

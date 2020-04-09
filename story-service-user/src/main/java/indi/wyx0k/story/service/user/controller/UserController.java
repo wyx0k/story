@@ -31,16 +31,25 @@ public class UserController {
     @PostMapping("/list")
     public BaseResponse listUser(){
         List<User> users = userService.list();
+        users.stream().forEach(user->user.setPassword("[******]"));
         return ResponseUtil.success("",users);
     }
     @PostMapping("/{username}")
     public BaseResponse getUser(@PathVariable("username")String username){
         User user = userService.getUserByUsername(username);
+        if(null == user){
+            return ResponseUtil.failure("","没有找到该用户哦~");
+        }
+        user.setPassword("[******]");
         return ResponseUtil.success("",user);
     }
     @PostMapping("/{username}/detail")
     public BaseResponse getUserDetail(@PathVariable("username")String username){
         User user = userService.getUserByUsername(username);
+        if(null == user){
+            return ResponseUtil.failure("","没有找到该用户哦~");
+        }
+        user.setPassword("[******]");
         UserInfo userInfo = userInfoService.getUserInfoByUserId(user.getId());
         UserDto userDto = new UserDto(user,userInfo);
         return ResponseUtil.success("",userDto);
@@ -53,6 +62,9 @@ public class UserController {
     @PostMapping("/{username}/delete")
     public BaseResponse deleteUser(@PathVariable("username")String username){
         User user = userService.getUserByUsername(username);
+        if(null == user){
+            return ResponseUtil.failure("","没有找到该用户哦~");
+        }
         userService.deleteUserById(user.getId());
         UserInfo userInfo = userInfoService.getUserInfoByUserId(user.getId());
         userInfoService.deleteUserInfoById(userInfo.getId());
@@ -63,6 +75,9 @@ public class UserController {
         User userIn = userDto.getUser();
         UserInfo userInfoIn = userDto.getUserInfo();
         User user = userService.getUserByUsername(userIn.getUsername());
+        if(null == user){
+            return ResponseUtil.failure("","没有找到该用户哦~");
+        }
         UserInfo userInfo = userInfoService.getUserInfoByUserId(user.getId());
         userIn.setId(user.getId());
         userInfoIn.setId(userInfo.getId());

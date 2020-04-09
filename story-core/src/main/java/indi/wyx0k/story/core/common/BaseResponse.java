@@ -23,5 +23,5 @@ public class BaseResponse {
     /**
      * 内容
      */
-    private String msg;
+    private Object msg;
 }

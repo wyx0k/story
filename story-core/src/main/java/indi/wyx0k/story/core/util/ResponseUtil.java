@@ -20,7 +20,7 @@ public class ResponseUtil {
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setCode(ResponseCode.SUCCESS.code());
         baseResponse.setToken(token);
-        baseResponse.setMsg(JSON.toJSONString(msg));
+        baseResponse.setMsg(msg);
         return baseResponse;
     }
     public static BaseResponse success(String token,String msg){
