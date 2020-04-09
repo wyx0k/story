@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="indi.wyx0k.story.service.image.mapper.ImageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="indi.wyx0k.story.service.image.entity.Image">
+        <id column="id" property="id" />
+        <result column="imageName" property="imageName" />
+        <result column="path" property="path" />
+        <result column="originName" property="originName" />
+        <result column="infoId" property="infoId" />
+        <result column="createTime" property="createTime" />
+        <result column="modifyTime" property="modifyTime" />
+        <result column="userId" property="userId" />
+        <result column="userOnly" property="userOnly" />
+        <result column="guestPermission" property="guestPermission" />
+        <result column="thumnailPath" property="thumnailPath" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, imageName, path, originName, infoId, createTime, modifyTime, userId, userOnly, guestPermission, thumnailPath
+    </sql>
+
+</mapper>
