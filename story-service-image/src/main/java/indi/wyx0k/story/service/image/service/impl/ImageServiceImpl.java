@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -83,5 +84,12 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
     @Override
     public void addImage(Image image) {
         getBaseMapper().insert(image);
+    }
+
+    @Override
+    public void updateImage(Image image) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        image.setModifyTime(localDateTime);
+        getBaseMapper().updateById(image);
     }
 }

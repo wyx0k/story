@@ -30,4 +30,9 @@ public class ImageInfoServiceImpl extends ServiceImpl<ImageInfoMapper, ImageInfo
     public void addImageInfo(ImageInfo imageInfo) {
         getBaseMapper().insert(imageInfo);
     }
+
+    @Override
+    public void updateImageInfo(ImageInfo imageInfo) {
+        getBaseMapper().updateById(imageInfo);
+    }
 }

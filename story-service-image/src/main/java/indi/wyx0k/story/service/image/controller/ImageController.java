@@ -2,6 +2,7 @@ package indi.wyx0k.story.service.image.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.generator.config.INameConvert;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -60,13 +61,23 @@ public class ImageController {
     public BaseResponse listImageByTime(@RequestParam String fromdate,@RequestParam String todate,@RequestParam int page,@RequestParam int size){
         Page<Image> page1 = iImageService.listImageByTime(fromdate,todate,page,size);
         if(null == page1){
-            return ResponseUtil.failure("","图片查询失败");
+            return ResponseUtil.failure("","图片查询失败哟~");
         }
         return ResponseUtil.success("",page1);
     }
     @PostMapping("/{imageName}")
     public BaseResponse getImage(@PathVariable String imageName){
         return ResponseUtil.success("",iImageService.listImageLikeOriginName(imageName));
+    }
+    @PostMapping("/{imageTrueName}/detail")
+    public BaseResponse getImageDetail(@PathVariable String imageTrueName){
+        Image image = iImageService.getImageByImageName(imageTrueName);
+        if(null == image){
+            return ResponseUtil.failure("","不存在这个图片哟~");
+        }
+        ImageInfo imageInfo = iImageInfoService.getImageInfoById(image.getInfoId());
+        ImageDto imageDto = new ImageDto(image,imageInfo);
+        return ResponseUtil.success("",imageDto);
     }
     @Transactional
     @PostMapping("/add")
@@ -113,11 +124,19 @@ public class ImageController {
             image1.setThumnailPath(thumbPath);
         }
         iImageService.addImage(image1);
-        if(null != imageInfo ){
-            iImageInfoService.addImageInfo(imageInfo);
-            image1.setInfoId(imageInfo.getId());
-            image1.insertOrUpdate();
+        if(null == imageInfo ) {
+            imageInfo = new ImageInfo();
+            String title = "";
+            if (originName.contains(".")) {
+                title = originName.substring(0, originName.lastIndexOf("."));
+            } else {
+                title = originName;
+            }
+            imageInfo.setTitle(title);
         }
+        iImageInfoService.addImageInfo(imageInfo);
+        image1.setInfoId(imageInfo.getId());
+        iImageService.updateImage(image1);
         return ResponseUtil.success("","图片添加成功");
     }
     @Transactional
@@ -134,7 +153,21 @@ public class ImageController {
         }
         return ResponseUtil.success("","图片删除成功");
     }
-
+    @Transactional
+    @PostMapping("/update")
+    public BaseResponse updateImage(@RequestBody ImageDto imageDto){
+        Image imageIn = imageDto.getImage();
+        ImageInfo imageInfoIn = imageDto.getImageInfo();
+        Image image = iImageService.getImageByImageName(imageIn.getImageName());
+        if(null == image){
+            return ResponseUtil.failure("","图片信息不存在，无法更新哟~");
+        }
+        imageIn.setId(image.getId());
+        iImageService.updateImage(imageIn);
+        imageInfoIn.setId(image.getInfoId());
+        iImageInfoService.updateImageInfo(imageInfoIn);
+        return ResponseUtil.success("","图片信息更新成功");
+    }
     private String getImagePath(String originName,boolean thumbnail){
         LocalDateTime localDateTime = LocalDateTime.now();
         UUID uuid = UUID.randomUUID();

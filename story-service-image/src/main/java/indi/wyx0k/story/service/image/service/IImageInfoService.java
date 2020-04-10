@@ -15,4 +15,5 @@ public interface IImageInfoService extends IService<ImageInfo> {
     ImageInfo getImageInfoById(int id);
     void deleteImageInfoById(int id);
     void addImageInfo(ImageInfo imageInfo);
+    void updateImageInfo(ImageInfo imageInfo);
 }

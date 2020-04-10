@@ -29,6 +29,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public void updateUser(User user) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        user.setModifyTime(localDateTime);
         getBaseMapper().updateById(user);
     }
 

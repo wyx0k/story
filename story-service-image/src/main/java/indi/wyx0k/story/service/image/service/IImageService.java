@@ -22,4 +22,5 @@ public interface IImageService extends IService<Image> {
     void deleteImageByImageName(int imageId);
     Image getImageByImageName(String imageName);
     void addImage(Image image);
+    void updateImage(Image image);
 }
