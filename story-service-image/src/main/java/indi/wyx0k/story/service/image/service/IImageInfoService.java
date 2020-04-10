@@ -12,5 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-04-09
  */
 public interface IImageInfoService extends IService<ImageInfo> {
-
+    ImageInfo getImageInfoById(int id);
+    void deleteImageInfoById(int id);
+    void addImageInfo(ImageInfo imageInfo);
 }

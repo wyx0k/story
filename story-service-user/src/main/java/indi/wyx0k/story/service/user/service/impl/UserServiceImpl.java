@@ -7,6 +7,8 @@ import indi.wyx0k.story.service.user.mapper.UserMapper;
 import indi.wyx0k.story.service.user.service.IUserService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 /**
  * <p>
  * 用户 服务实现类
@@ -37,6 +39,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public void addUser(User user) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        user.setCreateTime(localDateTime);
+        user.setModifyTime(localDateTime);
         getBaseMapper().insert(user);
     }
 }

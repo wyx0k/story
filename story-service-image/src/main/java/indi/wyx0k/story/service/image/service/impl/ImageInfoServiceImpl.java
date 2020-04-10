@@ -16,5 +16,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ImageInfoServiceImpl extends ServiceImpl<ImageInfoMapper, ImageInfo> implements IImageInfoService {
+    @Override
+    public ImageInfo getImageInfoById(int id) {
+        return getBaseMapper().selectById(id);
+    }
 
+    @Override
+    public void deleteImageInfoById(int id) {
+        getBaseMapper().deleteById(id);
+    }
+
+    @Override
+    public void addImageInfo(ImageInfo imageInfo) {
+        getBaseMapper().insert(imageInfo);
+    }
 }

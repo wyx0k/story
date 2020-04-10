@@ -66,9 +66,12 @@ public class UserController {
             return ResponseUtil.failure("","用户名已存在~");
         }
         userService.addUser(user);
-        User newUser = userService.getUserByUsername(user.getUsername());
-        userInfo.setUserId(newUser.getId());
-        userInfoService.addUserInfo(userInfo);
+        if(null != userInfo){
+            userInfo.setUserId(user.getId());
+            userInfoService.addUserInfo(userInfo);
+            user.setUserInfoId(userInfo.getId());
+            userService.updateUser(user);
+        }
         return ResponseUtil.success("","创建用户成功");
     }
     @Transactional
