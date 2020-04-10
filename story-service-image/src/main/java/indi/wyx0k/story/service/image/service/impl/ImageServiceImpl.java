@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,9 +42,14 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
         Page<Image> resultPage = new Page<>(page,size);
         QueryWrapper queryWrapper = new QueryWrapper();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
         try {
-            queryWrapper.between("createTime",simpleDateFormat.parse(fromdate),simpleDateFormat.parse(todate));
+            Date date1 = simpleDateFormat.parse(fromdate);
+            Date date2 = simpleDateFormat.parse(todate);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date2);
+            calendar.add(Calendar.DATE,1);
+            date2=calendar.getTime();
+            queryWrapper.between("createTime",date1,date2);
         } catch (ParseException e) {
             log.warn("图片查询失败，请检查参数：fromdate:{}，todate:{}，page:{}，size:{}",fromdate,todate,page,size);
             return null;
