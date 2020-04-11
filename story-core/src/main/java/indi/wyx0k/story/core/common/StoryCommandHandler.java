@@ -1,5 +1,9 @@
 package indi.wyx0k.story.core.common;
 
+import indi.wyx0k.story.core.CommandHandleException;
+
+import java.lang.reflect.Method;
+
 /**
  * story
  * --
@@ -14,7 +18,7 @@ public interface StoryCommandHandler {
      * @param storyContext
      * @return
      */
-    StoryContext handleCommand(StoryContext storyContext);
+    StoryContext handleCommand(StoryContext storyContext) throws CommandHandleException;
 
     /**
      * 判断命令是否支持
@@ -22,4 +26,5 @@ public interface StoryCommandHandler {
      * @return
      */
     Boolean support(String name);
+
 }

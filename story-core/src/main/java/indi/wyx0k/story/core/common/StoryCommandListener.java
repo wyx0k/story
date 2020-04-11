@@ -26,4 +26,10 @@ public interface StoryCommandListener {
      */
     StoryEventCommandManager getStoryEventCommandManager();
 
+    /**
+     * 设置监听的队列名称
+     * @param queueName
+     */
+    void setQueueName(String queueName);
+
 }
