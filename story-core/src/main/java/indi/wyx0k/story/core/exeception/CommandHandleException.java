@@ -1,4 +1,4 @@
-package indi.wyx0k.story.core;
+package indi.wyx0k.story.core.exeception;
 
 /**
  * story

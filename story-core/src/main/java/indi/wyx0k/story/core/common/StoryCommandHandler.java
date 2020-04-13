@@ -1,8 +1,6 @@
 package indi.wyx0k.story.core.common;
 
-import indi.wyx0k.story.core.CommandHandleException;
-
-import java.lang.reflect.Method;
+import indi.wyx0k.story.core.exeception.CommandHandleException;
 
 /**
  * story

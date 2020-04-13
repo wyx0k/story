@@ -60,4 +60,10 @@ public interface StoryEventCommandManager {
      * @param storyContext
      */
     void publishEvent(StoryEvent storyEvent,StoryContext storyContext);
+
+    /**
+     * 获取事件命令向引擎注册的元信息
+     * @return
+     */
+    StoryEventCommandMeta storyEventCommandMeta();
 }

@@ -1,6 +1,7 @@
 package indi.wyx0k.story.core.common;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,6 +53,6 @@ public interface StoryEventCommandMeta {
      * 协同时各个业务中需要忽略的事件
      * @return
      */
-    Map<String,StoryEvent> ignoredEvent();
+    Map<String, List<String>> getIgnoredEvent();
 
 }

@@ -22,6 +22,7 @@ public class SimpleStoryEventCommandManager implements StoryEventCommandManager 
     private Map<String,StoryCommand> commands;
     private Map<String,StoryCommandHandler> commandHandlers;
     private Map<String,List<String>> ignoredEvents;
+    private SimpleStoryEventCommandMeta simpleStoryEventCommandMeta;
 
     @Override
     public List<StoryCommand> listCommand() {
@@ -66,6 +67,11 @@ public class SimpleStoryEventCommandManager implements StoryEventCommandManager 
             storyEvent.setStoryContext(storyContext);
         }
         simpleStoryEventPulisher.publish(storyEvent);
+    }
+
+    @Override
+    public StoryEventCommandMeta storyEventCommandMeta() {
+        return simpleStoryEventCommandMeta;
     }
 
 }

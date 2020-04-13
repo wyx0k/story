@@ -1,5 +1,7 @@
 package indi.wyx0k.story.service.user.controller;
 
+import indi.wyx0k.story.core.annotation.EventCommand;
+import indi.wyx0k.story.core.annotation.StoryController;
 import indi.wyx0k.story.core.common.BaseResponse;
 import indi.wyx0k.story.core.util.ResponseUtil;
 import indi.wyx0k.story.service.user.dto.UserDto;
@@ -23,6 +25,7 @@ import java.util.List;
  * --
  * 2020/4/9
  */
+@StoryController
 @RestController
 @RequestMapping("/user")
 public class UserController {

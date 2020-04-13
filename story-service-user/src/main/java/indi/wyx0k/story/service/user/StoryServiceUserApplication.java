@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@ComponentScan({"indi.wyx0k.story.core.config","indi.wyx0k.story.service.user"})
+@ComponentScan({"indi.wyx0k.story.core","indi.wyx0k.story.service.user"})
 public class StoryServiceUserApplication {
 
 	public static void main(String[] args) {
